@@ -10,7 +10,7 @@ Using one or both of these APIs
 
 - Users will be able to search for venues in the United States possibly further, depending on the limits of the APIs, for venues, based on either ZIP Code or venue, name, or city name, or state name, which may change based on the capabilities of the APIs.
 - The homepage will have the search as its main focus, and every other page will have search capabilities in the header under the navigation.
-- After the search users will be brought to the listings page which will have any listings that match the criteria, and as a stretch, goal, a Google map. 
+- After the search users will be brought to the listings page which will have any listings that match the criteria, and as a stretch, goal, a Google map.
 - Users can see a detail page after clicking on one of the listings, which will Sherwin image title description, address, webpage, and other pertinent information.
 - On the homepage, there will be a randomized carousel of venues at the bottom, which will have a photo a title and our clickable to the venue detail page
 - Users can submit a venue via a React form if it is not listed (some very basic validation on existence will be created).
@@ -19,12 +19,12 @@ Using one or both of these APIs
 - Basic non-functional storefront to follow the website concept and for a giggle. They will be listings of fake products, and as a stretch goal, if time is permitting, clicking on one will take one user to a detail page for that fake product.
 - Site will be responsive and readable at all device widths down to 500px.
 
-
 # Components (and Pages)
 
 ![Site and component map](https://github.com/evilgeniuscreative/venues-list/blob/master/Site-component-map.png "Site and component map")
 
 # Stories
+
 https://evilgeniuscreative.atlassian.net/jira/software/projects/VEN/boards/9
 
 (Please forgive me if I don't use the stilted "As a user of ... " language. No job I've ever had has used that. Just the facts, m'am. If you need me to add that to be acceptable, lmk).
