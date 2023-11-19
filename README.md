@@ -15,5 +15,5 @@ Venue searchability by venue name, location, or zip code
 
 # Stretch Goals
 Google maps
-Submit a venue
+Users can submit a venue if it is not listed (validation on existence required)
 
