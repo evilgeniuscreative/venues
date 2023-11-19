@@ -15,7 +15,7 @@ Venue searchability by venue name, location, or zip code
 
 # Wireframe
 
-[Wireframe 8-page clickable PDF](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-2.pdf) i.e., [https://github.com/evilgeniuscreative/venues-list/edit/master/Venues-2.pdf](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-2.pdf)
+[Wireframe 8-page clickable PDF](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v3.pdf) i.e., [https://github.com/evilgeniuscreative/venues-list/edit/master/Venues-v3.pdf](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v3.pdf)
 
 ![Homepage image](https://github.com/evilgeniuscreative/venues-list/blob/master/Homepage.png "Homepage image")
 
