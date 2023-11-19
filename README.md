@@ -16,6 +16,7 @@ Using one or both of these APIs
 - if the venue has been found to exist, there will be an error message saying so.
 - Thank you page follows a successful submission that has been validated did not already exist.
 - Basic non-functional storefront to follow the website concept and for a giggle. They will be listings of fake products, and as a stretch goal, if time is permitting, clicking on one will take one user to a detail page for that fake product.
+- Site will be responsive and readable at all device widths down to 500px.
 
 
 # Components (and Pages)
