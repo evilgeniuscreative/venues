@@ -1,7 +1,10 @@
 :root {
-  --textcolor: #444;
-  --purple: #351c75;
   --aqua: #085394;
+  --gold: #ffd966;
+  --justgreen: #009e0f;
+  --orangecream: #f6b26b;
+  --purple: #351c75;
+  --textcolor: #444;
 }
 
 body {
@@ -23,4 +26,5 @@ code {
 /*/--------------  LISTINGS  ----------------/*/
 /*/--------------  DETAIL  ----------------/*/
 /*/--------------  SUBMIT FORM & THANK YOU  ----------------/*/
-/*/--------------  SHARED & MISC  ----------------/*//*# sourceMappingURL=index.css.map */
+/*/--------------  SHARED & MISC  ----------------/*/
+/* MAPPING *//*# sourceMappingURL=index.css.map */
