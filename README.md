@@ -11,7 +11,7 @@ Venue searchability by venue name, location, or zip code
 
 # Components (and Pages)
 
-![Site and component map](https://github.com/evilgeniuscreative/venues-list/blob/master/Site%20and%20component%20map.png "Site and component map")
+![Site and component map](https://github.com/evilgeniuscreative/venues-list/blob/master/Site-component-map.png "Site and component map")
 
 # Wireframe
 
