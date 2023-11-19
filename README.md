@@ -5,7 +5,15 @@ Using one or both of these APIs
 - https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
 - https://platform.seatgeek.com/
 
+# Functionality
+
+Venue searchability by venue name, location, or zip code
+
+# Wireframe
+
+[Wireframe PDF](https://github.com/evilgeniuscreative/venues-list/edit/master/venues.pdf)
 
 # Stretch Goals
 Google maps
-Searchability by venue name or zip code
+Submit a venue
+
