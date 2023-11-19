@@ -11,7 +11,7 @@ Venue searchability by venue name, location, or zip code
 
 # Wireframe
 
-[Wireframe PDF](https://github.com/evilgeniuscreative/venues-list/edit/master/venues.pdf)
+[Wireframe PDF](https://github.com/evilgeniuscreative/venues-list/edit/master/Venues.pdf)
 
 # Stretch Goals
 Google maps
