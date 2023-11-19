@@ -16,6 +16,10 @@ Venue searchability by venue name, location, or zip code
 i.e., 
 [https://github.com/evilgeniuscreative/venues-list/edit/master/Venues.pdf](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues.pdf)
 
+![Homepage image](https://github.com/evilgeniuscreative/venues-list/blob/master/Homepage.png "Homepage image")
+
+![Mobile Homeage image](https://github.com/evilgeniuscreative/venues-list/blob/master/Mobile%20Homepage.png "Mobile Homepage image")
+
 # Stretch Goals
 Google maps
 Users can submit a venue if it is not listed (validation on existence required)
