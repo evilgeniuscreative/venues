@@ -18,7 +18,7 @@ Using one or both of these APIs
 
 # Components (and Pages)
 
-![Site and component map](https://github.com/evilgeniuscreative/venues-list/blob/master/Site-component-map.png "Site and component map")
+![Site and component map](https://github.com/evilgeniuscreative/venues-list/blob/master/Site-component-map-v5.png "Site and component map")
 
 # Stories
 
@@ -28,7 +28,7 @@ https://evilgeniuscreative.atlassian.net/jira/software/projects/VEN/boards/9
 
 # Wireframe
 
-[Wireframe 8-page clickable PDF](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v4.pdf) i.e., [https://github.com/evilgeniuscreative/venues-list/edit/master/Venues-v4.pdf](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v4.pdf)
+[Wireframe 8-page clickable PDF](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v5.pdf) i.e., [https://github.com/evilgeniuscreative/venues-list/edit/master/Venues-v5.pdf](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v5.pdf)
 
 ![Homepage image](https://github.com/evilgeniuscreative/venues-list/blob/master/Homepage.png "Homepage image")
 
