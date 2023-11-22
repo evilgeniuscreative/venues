@@ -13,9 +13,6 @@ Using one or both of these APIs
 - After the search users will be brought to the listings page which will have any listings that match the criteria, and as a stretch, goal, a Google map.
 - Users can see a detail page after clicking on one of the listings, which will Sherwin image title description, address, webpage, and other pertinent information.
 - On the homepage, there will be a randomized carousel of venues at the bottom, which will have a photo a title and our clickable to the venue detail page
-- Users can submit a venue via a React form if it is not listed (some very basic validation on existence will be created).
-- if the venue has been found to exist, there will be an error message saying so.
-- Thank you page follows a successful submission that has been validated did not already exist.
 - Basic non-functional storefront to follow the website concept and for a giggle. They will be listings of fake products, and as a stretch goal, if time is permitting, clicking on one will take one user to a detail page for that fake product.
 - Site will be responsive and readable at all device widths down to 500px.
 
@@ -43,3 +40,7 @@ https://evilgeniuscreative.atlassian.net/jira/software/projects/VEN/boards/9
 - Pagination of results
 - List upcoming shows at the venue
 - Store item detail page
+- Add a listing (will require a database)
+- Users can submit a venue via a React form if it is not listed (some very basic validation on existence will be created).
+- if the venue has been found to exist, there will be an error message saying so.
+- Thank you page follows a successful submission that has been validated did not already exist.
