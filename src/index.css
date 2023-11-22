@@ -8,33 +8,25 @@
 }
 
 /*/--------------  SCSS VARS  ----------------/*/
-/*/--------------  FONTS  ----------------/*/
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Montserrat-Italic";
-  src: url("/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
+
 /*/--------------  MAIN  ----------------/*/
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  /*/--------------  FONTS  ----------------/*/
+  /* font-family: 'Dancing Script', cursive; */
+  font-family: 'Kanit', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 em {
-  font-family: "Montserrat-Italic";
+  font-family: 'Montserrat-Italic';
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 /*/--------------  SEARCH  ----------------/*/
@@ -46,4 +38,4 @@ code {
 /*/--------------  DETAIL  ----------------/*/
 /*/--------------  SUBMIT FORM & THANK YOU  ----------------/*/
 /*/--------------  SHARED & MISC  ----------------/*/
-/* MAPPING *//*# sourceMappingURL=index.css.map */
+/* MAPPING */ /*# sourceMappingURL=index.css.map */
