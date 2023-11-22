@@ -1,0 +1,49 @@
+:root {
+  --aqua: #085394;
+  --gold: #ffd966;
+  --justgreen: #009e0f;
+  --orangecream: #f6b26b;
+  --purple: #351c75;
+  --textcolor: #444;
+}
+
+/*/--------------  SCSS VARS  ----------------/*/
+/*/--------------  FONTS  ----------------/*/
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat-Italic";
+  src: url("/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+/*/--------------  MAIN  ----------------/*/
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em {
+  font-family: "Montserrat-Italic";
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/*/--------------  SEARCH  ----------------/*/
+/*/--------------  HEADER  ----------------/*/
+/*/--------------  HOMEPAGE  ----------------/*/
+/*/--------------  FOOTER  ----------------/*/
+/*/--------------  CAROUSEL  ----------------/*/
+/*/--------------  LISTINGS  ----------------/*/
+/*/--------------  DETAIL  ----------------/*/
+/*/--------------  SUBMIT FORM & THANK YOU  ----------------/*/
+/*/--------------  SHARED & MISC  ----------------/*/
+/* MAPPING *//*# sourceMappingURL=index.css.map */
