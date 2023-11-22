@@ -1,7 +1,7 @@
 function Detail() {
   return (
     <>
-      <main></main>
+      <section></section>
     </>
   );
 }

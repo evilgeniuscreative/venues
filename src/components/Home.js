@@ -1,7 +1,12 @@
+import React from 'react';
+import Search from './Search';
+
 function Home() {
   return (
     <>
-      <main></main>
+      <section>
+        <Search />
+      </section>
     </>
   );
 }

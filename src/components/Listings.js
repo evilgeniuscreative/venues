@@ -1,7 +1,7 @@
 function Listings() {
   return (
     <>
-      <main></main>
+      <section></section>
     </>
   );
 }
