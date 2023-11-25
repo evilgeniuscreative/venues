@@ -1,11 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
-import "dotenv/config";
+import './App.css';
+import Home from './components/Home';
 
 function App() {
   return (
     <main>
-  
+      <h1>Welcome to the Venue Finder!</h1>
+      <Home />
     </main>
   );
 }

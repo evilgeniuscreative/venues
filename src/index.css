@@ -8,28 +8,88 @@
 }
 
 /*/--------------  SCSS VARS  ----------------/*/
-
+/*/--------------  FONTS  ----------------/*/
 /*/--------------  MAIN  ----------------/*/
 body {
+  font-family: "Dancing Script", cursive;
+  font-family: "Kanit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
-  /*/--------------  FONTS  ----------------/*/
-  /* font-family: 'Dancing Script', cursive; */
-  font-family: 'Kanit', sans-serif;
-  font-family: 'Montserrat', sans-serif;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 em {
-  font-family: 'Montserrat-Italic';
+  font-family: "Montserrat-Italic";
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+h1 {
+  text-align: center;
 }
 
 /*/--------------  SEARCH  ----------------/*/
+label {
+  font-family: "Kanit", sans-serif;
+  padding: 0 10px;
+  position: absolute;
+  z-index: -1;
+}
+
+select,
+input,
+button {
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+#searchSection {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+#searchForm {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+#search {
+  width: 450px;
+}
+
+.form-first {
+  padding-right: 20px;
+}
+
+.form-second {
+  position: relative;
+}
+
+#searchSuggestions {
+  background-color: white;
+  border: 1px solid var(--purple);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 0;
+  position: absolute;
+  width: 75%;
+  z-index: 99;
+}
+#searchSuggestions a {
+  display: block;
+  font-family: "Kanit";
+  margin: 0;
+  padding: 5px 20px;
+}
+#searchSuggestions a:nth-child(2n+1) {
+  background-color: #efefef;
+}
+
 /*/--------------  HEADER  ----------------/*/
 /*/--------------  HOMEPAGE  ----------------/*/
 /*/--------------  FOOTER  ----------------/*/
@@ -38,4 +98,4 @@ code {
 /*/--------------  DETAIL  ----------------/*/
 /*/--------------  SUBMIT FORM & THANK YOU  ----------------/*/
 /*/--------------  SHARED & MISC  ----------------/*/
-/* MAPPING */ /*# sourceMappingURL=index.css.map */
+/* MAPPING *//*# sourceMappingURL=index.css.map */
