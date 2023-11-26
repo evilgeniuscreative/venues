@@ -6,7 +6,7 @@ function Routers() {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/listing' element={<Listing />} />
+      <Route path='/listing/:id' element={<Listing />} />
       <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   );

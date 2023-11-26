@@ -6,7 +6,7 @@ function SearchSuggestion({ results }) {
     <>
       {results.map((r) => {
         return (
-          <a key={r.id} href={'detail/' + r.id}>
+          <a key={r.id} href={'/listing/' + r.id}>
             {r.name}
           </a>
         );

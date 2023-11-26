@@ -23,7 +23,9 @@ $transition-all: all $tt;
 /*/--------------  FONTS  ----------------/*/
 
 /*/--------------  MAIN  ----------------/*/
-
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: 'Dancing Script', cursive;
   font-family: 'Kanit', sans-serif;
@@ -63,14 +65,14 @@ button {
 }
 
 #searchSection {
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
   max-width: 800px;
 }
 
 #searchForm {
   display: flex;
   justify-content: center;
-  margin: 20px auto;
+  margin: 20px auto 0;
 }
 
 #searchBy {
@@ -93,27 +95,32 @@ button {
   border-bottom-right-radius: $border-radius;
   border-bottom-left-radius: $border-radius;
   margin: 0 auto;
+  max-height: 500px;
+  overflow: scroll;
   padding: 0;
   position: absolute;
   width: 100%;
   z-index: 99;
 
   a {
+    color: $textcolor;
     display: block;
     font-family: 'Kanit';
     margin: 0;
+    padding: 5px 20px;
+    text-decoration: none;
     &:nth-child(2n + 1) {
       background-color: #efefef;
     }
-    padding: 5px 20px;
   }
 }
 
 #searchResults {
   margin: 0 auto;
-  padding-left: 40px;
+  padding-left: 60px;
   position: relative;
-  width: 20%;
+
+  width: 425px;
 }
 /*/--------------  HEADER  ----------------/*/
 

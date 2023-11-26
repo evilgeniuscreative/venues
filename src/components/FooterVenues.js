@@ -1,14 +1,11 @@
-import React from "react";
-import FooterVenue from "./FooterVenue";
-
+import React from 'react';
+import FooterVenue from './FooterVenue';
 function FooterVenues() {
   return (
-   
-      <div class="footer-venues">
-        <h2>Venues</h2>
-        <FooterVenue /> 
-      </div>
-  
+    <div class='footer-venues'>
+      <h2>Venues</h2>
+      <FooterVenue />
+    </div>
   );
 }
 

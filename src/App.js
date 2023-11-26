@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import Search from './components/Search';
-import SearchSuggestions from './components/SearchSuggestions';
+import React, { useState, useEffect } from 'react';
+import { Route, Routes, Navigate, useParams } from 'react-router-dom';
+import Home from './components/Home';
+import Listing from './components/Listing';
 
 // import z from './data/zips-geopoint.js';
 import './App.css';
@@ -8,17 +9,16 @@ import './App.css';
 function App() {
   // const [zipCodes, setZipCodes] = useState(z);
   const [searchString, setSearchString] = useState('');
-
+  const [dataset, setDataset] = useState({});
   const [results, setResults] = useState([]);
+  const [lastLength, setLastLength] = useState(0);
   // eslint-disable-next-line
   const [searchKey, setSearchKey] = useState('');
 
-  const [lastLength, setLastLength] = useState(0);
-
-  const getApiData = (apiString) => {
-    console.log('baseurl', process.env.REACT_APP_TM_BASE_URL);
-    console.log('apikey', process.env.REACT_APP_TM_API_KEY);
-    // console.log('apiString', apiString);
+  const getApiData = () => {
+    // console.log('baseurl', process.env.REACT_APP_TM_BASE_URL);
+    // console.log('apikey', process.env.REACT_APP_TM_API_KEY);
+    // // console.log('apiString', apiString);
 
     const endpoint = process.env.REACT_APP_TM_BASE_URL + 'venues.json?' + process.env.REACT_APP_TM_API_KEY;
     console.log('endpoint', endpoint);
@@ -26,11 +26,17 @@ function App() {
     fetch(endpoint)
       .then((response) => response.json())
       .then((response) => {
-        console.log('fetch response:', response._embedded.venues);
-        setResults(response._embedded.venues);
+        console.log('fetch response:', response);
+
+        setDataset(response);
       })
       .catch(console.error);
   };
+
+  // load initial dataset
+  useEffect(() => {
+    getApiData();
+  }, []);
 
   // const zipToGeoPoint = (e) => {
   //   e.preventDefault();
@@ -41,43 +47,69 @@ function App() {
   //   return result;
   // };
 
-  const searchBy = (e) => {
-    e.preventDefault();
-    getApiData(searchString);
+  const handleTypeahead = (e) => {
+    console.log('handleTypeahead');
+    let searchString = e.target.value;
+    let searchStringShortened = searchString.slice(0, searchString.length);
+
+    // empty search field resets currencies to original state
+    if (searchString.length === 0 || searchString.length === null) {
+      // EMPTY SEARCH FIELD
+      setResults(dataset);
+      return;
+    }
+
+    // if search length is less than last length, reset currencies to original state then searches again for correct results
+    if (searchString.length < lastLength) {
+      // BACKWARDS SEARCH (fewer characters)
+      setResults(dataset);
+      searchString = document.querySelector('#search').value;
+      searchStringShortened = searchString.slice(0, searchString.length);
+
+      const venueSearch = dataset._embedded.venues.filter((venue) => venue.name.toLowerCase().match(searchStringShortened.toLowerCase()));
+      setResults(venueSearch);
+
+      // if typing is longer than last length, search for correct results
+    } else {
+      // FORWARDS SEARCH (more characters)
+      const venueSearch = dataset._embedded.venues.filter((venue) => venue.name.toLowerCase().match(searchStringShortened.toLowerCase()));
+
+      setResults(venueSearch);
+    }
+
+    // set last length to current length
+    setLastLength(searchString.length);
+    return null;
   };
 
   const handleSearchKey = (e) => {
+    console.log('handleSearchKey');
     e.preventDefault();
     setSearchKey(e.target.value);
   };
 
   const handleSubmit = (e) => {
+    console.log('handleSubmit');
     e.preventDefault();
     // searchBy(e);
-    getApiData(searchString);
   };
 
   const handleChange = (e) => {
+    console.log('handleChange');
     e.preventDefault();
     setSearchString(e.target.value);
     console.log('value', e.target.value);
-
-    searchBy(e);
-
-    // let ssShortened = searchString.slice(0, searchString.length);
-
-    // const currSearch = results.filter((currency) => currency.currency.toLowerCase().match(ssShortened.toLowerCase()));
-    // setResults(currSearch);
+    handleTypeahead(e);
   };
 
   return (
-    <main>
-      <h1>Welcome to the Venue Finder!</h1>
-      <Search handleChange={handleChange} handleSubmit={handleSubmit} handleSearchKey={handleSearchKey} />
-     <div id="searchResults">
-            {results && results.length > 0 ? <SearchSuggestions results={results} /> : null}
-     </div>
-    </main>
+    <div className='app'>
+      <Routes>
+        <Route path='/' element={<Home handleChange={handleChange} handleSubmit={handleSubmit} handleSearchKey={handleSearchKey} results={results} />} />
+        <Route path='/listing/:id' element={<Listing vid={useParams()} results={results} />} />
+        <Route path='*' element={<Navigate to='/' />} />
+      </Routes>
+    </div>
   );
 }
 

@@ -1,7 +1,9 @@
-function Listings() {
+import React from 'react';
+ 
+function Listings({ response }) {
   return (
     <>
-      <section></section>
+      <section>Listings</section>
     </>
   );
 }
