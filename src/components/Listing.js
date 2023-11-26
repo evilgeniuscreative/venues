@@ -1,16 +1,18 @@
 import React from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 
 function Listing({ results }) {
-const {vid} = useParams();
+  console.log('useParams():', useParams(), 'results:', results);
+  const { id } = useParams();
+  console.log('id', id);
 
-  console.log('vid', vid);
-  const v = results.find((v) => v.id === vid);
+  console.log('id', id);
+  const v = results.find((v) => v.id === id);
   console.log('v', v);
   // if (!id) {
   //   return <h1>Venue listing not found</h1>;
   // }
+
   return (
     <>
       <section>Listing Page</section>

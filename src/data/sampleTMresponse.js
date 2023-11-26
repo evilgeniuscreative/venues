@@ -69,49 +69,6 @@ const sampleJson = {
         type: 'venue',
         url: 'http://ticketmaster.ca/venue/341396',
       },
-      {
-        name: '#2 Please do not use, left over from UCV initial acct set up',
-        type: 'venue',
-        id: 'KovZpZAFnIJA',
-        test: false,
-        url: 'http://ticketmaster.ca/venue/341395',
-        locale: 'en-us',
-        postalCode: 'K0C1X0',
-        timezone: 'America/Toronto',
-        city: {
-          name: 'Morrisburg',
-        },
-        state: {
-          name: 'Ontario',
-          stateCode: 'ON',
-        },
-        country: {
-          name: 'Canada',
-          countryCode: 'CA',
-        },
-        address: {
-          line1: '13740 County Road 2',
-        },
-        location: {
-          longitude: '-75.18635300',
-          latitude: '44.89937100',
-        },
-        markets: [
-          {
-            id: '103',
-          },
-        ],
-        dmas: [
-          {
-            id: 519,
-          },
-        ],
-        _links: {
-          self: {
-            href: '/discovery/v2/venues/KovZpZAFnIJA?locale=en-us',
-          },
-        },
-      },
     ],
   },
   _links: {

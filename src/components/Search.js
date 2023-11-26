@@ -11,7 +11,8 @@ function Search({ handleChange, handleSubmit, handleSearchKey, results }) {
     setpHolder('Search Venues');
   };
 
-  console.log('Search.js', results);
+  console.log('Results in Search.js', results);
+
   return (
     <section id='searchSection'>
       <form id='searchForm'>
@@ -27,7 +28,7 @@ function Search({ handleChange, handleSubmit, handleSearchKey, results }) {
 
         <div className='form-second'>
           <label htmlFor='search'>Search Text</label>
-          <input type='text' name='search' id='search' placeholder='Search' onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} onSubmit={handleSubmit} />
+          <input type='text' name='search' id='search' placeholder='Search' onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
         </div>
       </form>
     </section>

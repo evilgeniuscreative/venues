@@ -12,8 +12,9 @@ function App() {
   const [dataset, setDataset] = useState({});
   const [results, setResults] = useState([]);
   const [lastLength, setLastLength] = useState(0);
-  // eslint-disable-next-line
-  const [searchKey, setSearchKey] = useState('');
+  const [lastSearch, setLastSearch] = useState('');
+
+  //const [searchKey, setSearchKey] = useState('');
 
   const getApiData = () => {
     // console.log('baseurl', process.env.REACT_APP_TM_BASE_URL);
@@ -27,8 +28,9 @@ function App() {
       .then((response) => response.json())
       .then((response) => {
         console.log('fetch response:', response);
-
         setDataset(response);
+        setResults(response._embedded.venues);
+        console.log('fetch results', results);
       })
       .catch(console.error);
   };
@@ -47,66 +49,72 @@ function App() {
   //   return result;
   // };
 
-  const handleTypeahead = (e) => {
-    console.log('handleTypeahead');
-    let searchString = e.target.value;
-    let searchStringShortened = searchString.slice(0, searchString.length);
+  // const handleTypeahead = (e) => {
+  //   console.log('handleTypeahead');
+  //   let searchString = e.target.value;
+  //   let searchStringShortened = searchString.slice(0, searchString.length);
 
-    // empty search field resets currencies to original state
-    if (searchString.length === 0 || searchString.length === null) {
-      // EMPTY SEARCH FIELD
-      setResults(dataset);
-      return;
-    }
+  //   // empty search field resets currencies to original state
+  //   if (searchString.length === 0 || searchString.length === null) {
+  //     // EMPTY SEARCH FIELD
+  //     setResults(dataset);
+  //     return;
+  //   }
 
-    // if search length is less than last length, reset currencies to original state then searches again for correct results
-    if (searchString.length < lastLength) {
-      // BACKWARDS SEARCH (fewer characters)
-      setResults(dataset);
-      searchString = document.querySelector('#search').value;
-      searchStringShortened = searchString.slice(0, searchString.length);
+  //   // if search length is less than last length, reset currencies to original state then searches again for correct results
+  //   if (searchString.length < lastLength) {
+  //     console.log('ss down', searchString.length, lastLength);
+  //     // BACKWARDS SEARCH (fewer characters)
+  //     // setResults(dataset);
+  //     searchString = document.querySelector('#search').value;
+  //     searchStringShortened = searchString.slice(0, searchString.length);
 
-      const venueSearch = dataset._embedded.venues.filter((venue) => venue.name.toLowerCase().match(searchStringShortened.toLowerCase()));
-      setResults(venueSearch);
+  //     const venueSearch = dataset._embedded.venues.filter((venue) => venue.name.toLowerCase().match(searchStringShortened.toLowerCase()));
+  //     setResults(venueSearch);
 
-      // if typing is longer than last length, search for correct results
-    } else {
-      // FORWARDS SEARCH (more characters)
-      const venueSearch = dataset._embedded.venues.filter((venue) => venue.name.toLowerCase().match(searchStringShortened.toLowerCase()));
+  //     // if typing is longer than last length, search for correct results
+  //   } else {
+  //     console.log('ss up', searchString.length, lastLength);
 
-      setResults(venueSearch);
-    }
+  //     // FORWARDS SEARCH (more characters)
+  //     const venueSearch = dataset._embedded.venues.filter((venue) => venue.name.toLowerCase().match(searchStringShortened.toLowerCase()));
 
-    // set last length to current length
-    setLastLength(searchString.length);
-    return null;
-  };
+  //     setResults(venueSearch);
+  //   }
 
-  const handleSearchKey = (e) => {
-    console.log('handleSearchKey');
-    e.preventDefault();
-    setSearchKey(e.target.value);
-  };
+  //   // set last length to current length
+  //   setLastLength(searchString.length);
+  //   return null;
+  // };
 
-  const handleSubmit = (e) => {
-    console.log('handleSubmit');
-    e.preventDefault();
-    // searchBy(e);
-  };
+  // const handleSearchKey = (e) => {
+  //   console.log('handleSearchKey');
+  //   e.preventDefault();
+  //   setSearchKey(e.target.value);
+  // };
+
+  // const handleSubmit = (e) => {
+  //   console.log('handleSubmit');
+  //   e.preventDefault();
+  //   // searchBy(e);
+  // };
 
   const handleChange = (e) => {
     console.log('handleChange');
+
     e.preventDefault();
     setSearchString(e.target.value);
-    console.log('value', e.target.value);
-    handleTypeahead(e);
+    console.log('ss value', e.target.value);
+    console.log('results', results);
+
+    // handleTypeahead(e);
   };
 
   return (
     <div className='app'>
       <Routes>
-        <Route path='/' element={<Home handleChange={handleChange} handleSubmit={handleSubmit} handleSearchKey={handleSearchKey} results={results} />} />
-        <Route path='/listing/:id' element={<Listing vid={useParams()} results={results} />} />
+        <Route path='/' element={<Home handleChange={handleChange} results={results} />} />
+        <Route path='/listing/:id' element={<Listing results={results} />} />
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </div>
