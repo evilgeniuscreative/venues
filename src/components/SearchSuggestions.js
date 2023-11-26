@@ -1,10 +1,11 @@
 import React from 'react';
 import SearchSuggestion from './SearchSuggestion';
 
-function SearchSuggestions() {
+function SearchSuggestions({results}) {
+  console.log('Search Suggestions');
   return (
     <div id='searchSuggestions'>
-      <SearchSuggestion />
+      <SearchSuggestion results={results} />
     </div>
   );
 }

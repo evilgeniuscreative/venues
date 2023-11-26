@@ -75,9 +75,10 @@ button {
   border: 1px solid var(--purple);
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+  margin: 0 auto;
   padding: 0;
   position: absolute;
-  width: 75%;
+  width: 100%;
   z-index: 99;
 }
 #searchSuggestions a {
@@ -88,6 +89,13 @@ button {
 }
 #searchSuggestions a:nth-child(2n+1) {
   background-color: #efefef;
+}
+
+#searchResults {
+  margin: 0 auto;
+  padding-left: 40px;
+  position: relative;
+  width: 20%;
 }
 
 /*/--------------  HEADER  ----------------/*/

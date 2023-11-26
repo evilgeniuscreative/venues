@@ -1,11 +1,11 @@
 import React from 'react';
 import Search from './Search';
 
-function Home() {
+function Home({ zips }) {
   return (
     <>
       <section>
-        <Search />
+        <Search zips={zips} />
       </section>
     </>
   );

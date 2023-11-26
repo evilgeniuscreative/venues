@@ -1,10 +1,12 @@
-import { Route, Routes, Navigate } from "react-router-dom";
-import Home from "../components/Home";
+import { Route, Routes, Navigate } from 'react-router-dom';
+import Home from '../components/Home';
+import Listing from '../components/Listing';
 
 function Routers() {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path='/listing' element={<Listing />} />
       <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   );

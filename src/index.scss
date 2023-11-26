@@ -92,19 +92,28 @@ button {
   border: 1px solid $purple;
   border-bottom-right-radius: $border-radius;
   border-bottom-left-radius: $border-radius;
+  margin: 0 auto;
   padding: 0;
   position: absolute;
-  width: 75%;
+  width: 100%;
   z-index: 99;
+
   a {
     display: block;
     font-family: 'Kanit';
     margin: 0;
-    padding: 5px 20px;
     &:nth-child(2n + 1) {
       background-color: #efefef;
     }
+    padding: 5px 20px;
   }
+}
+
+#searchResults {
+  margin: 0 auto;
+  padding-left: 40px;
+  position: relative;
+  width: 20%;
 }
 /*/--------------  HEADER  ----------------/*/
 
