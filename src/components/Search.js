@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-function Search({ handleChange, handleSubmit, handleSearchKey, results }) {
+function Search({ handleChange, searchKey, handleSearchKey, results }) {
   // eslint-disable-next-line
   const [pholder, setpHolder] = useState('Search Venues');
 
@@ -18,7 +18,7 @@ function Search({ handleChange, handleSubmit, handleSearchKey, results }) {
       <form id='searchForm'>
         <div className='form-first'>
           <label htmlFor='searchBy'>Search By:</label>
-          <select name='searchBy' id='searchBy' defaultValue='city' onChange={handleSearchKey}>
+          <select name='searchBy' id='searchBy' defaultValue={searchKey} onChange={handleSearchKey}>
             <option value='name'>Name</option>
             <option value='city'>City</option>
             <option value='state'>State</option>
