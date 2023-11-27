@@ -17,24 +17,28 @@ $purple: var(--purple);
 $textcolor: var(--textcolor);
 
 $border-radius: 5px;
+$border-radius-lg: 15px;
 $tt: 0.3s;
 $transition-all: all $tt;
 
 /*/--------------  FONTS  ----------------/*/
 
-/*/--------------  MAIN  ----------------/*/
-* {
-  box-sizing: border-box;
-}
 body {
+  background: url('../public/img/bokette.jpg') center top no-repeat;
+  background-size: cover;
   font-family: 'Dancing Script', cursive;
-  font-family: 'Kanit', sans-serif;
   font-family: 'Montserrat', sans-serif;
+  font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/*/--------------  MAIN  ----------------/*/
+* {
+  box-sizing: border-box;
 }
 
 em {
@@ -66,11 +70,12 @@ button {
 
 #searchSection {
   margin: 20px auto 0 auto;
-  max-width: 800px;
+  width: 60%;
 }
 
 #searchForm {
   display: flex;
+  gap: 20px;
   justify-content: center;
   margin: 20px auto 0;
 }
@@ -79,14 +84,16 @@ button {
 }
 
 #search {
-  width: 450px;
+  width: 90%;
 }
 
 .form-first {
-  padding-right: 20px;
+  flex-basis: 20%;
+  text-align: right;
 }
 .form-second {
   position: relative;
+  flex-basis: 80%;
 }
 
 #searchSuggestions {
@@ -124,7 +131,71 @@ button {
 }
 /*/--------------  HEADER  ----------------/*/
 
+#header {
+  background-color: $purple;
+  border-bottom: 3px solid black;
+  color: white;
+  font-family: 'Kanit', 'Monserrat', sans-serif;
+  height: 100px;
+  .flexbox {
+    display: flex;
+    justify-content: space-around;
+    h1 {
+      font-size: 44px;
+      margin: 14px 0;
+    }
+    nav {
+      display: flex;
+      flex-basis: 10%;
+      gap: 10px;
+      justify-content: space-around;
+      padding: 10px 0;
+      a {
+        border: 1px solid transparent;
+        border-radius: $border-radius;
+        color: white;
+        font-size: 24px;
+        height: 3.5rem;
+        padding: 8px 20px;
+        text-decoration: none;
+        transition: $transition-all;
+        &:visited {
+          color: white;
+        }
+        &:hover {
+          border-color: white;
+          transition: $transition-all;
+        }
+        &.home.homelink {
+          border-color: white;
+          transition: $transition-all;
+        }
+      }
+    }
+  }
+}
+
 /*/--------------  HOMEPAGE  ----------------/*/
+
+.home {
+  select,
+  input,
+  button {
+    border-radius: $border-radius-lg;
+    font-size: 24px;
+    padding: 10px 20px;
+  }
+
+  .maintext {
+    background: rgba(255, 255, 255, 0.8);
+    border: 3px solid black;
+    border-radius: $border-radius-lg;
+    font-size: 24px;
+    margin: 40px auto;
+    padding: 24px;
+    width: 65%;
+  }
+}
 
 /*/--------------  FOOTER  ----------------/*/
 

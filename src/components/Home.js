@@ -2,15 +2,16 @@ import React from 'react';
 import Search from './Search';
 import SearchSuggestions from './SearchSuggestions';
 
-function Home({ handleChange, searchKey, handleSearchKey, results }) {
+function Home({ handleChange, searchKey, handleSearchKey, results, currPage, setCurrPage }) {
+  setCurrPage('home');
   return (
-    <>
+    <main className='home'>
       <section>
-        <h1>Welcome to the Venue Finder!</h1>
+        <article className='maintext'>If you love live performance and traveling, let us find venues for you ... wherever is on your bucket list.</article>
         <Search handleChange={handleChange} searchKey={searchKey} handleSearchKey={handleSearchKey} results={results} />
         <div id='searchResults'>{results && results.length > 0 ? <SearchSuggestions results={results} /> : null}</div>
       </section>
-    </>
+    </main>
   );
 }
 
