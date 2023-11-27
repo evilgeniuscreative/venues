@@ -1,46 +1,70 @@
-# venues-list
+# Getting Started with Create React App
 
-Using APIs from Ticketmaster and SeatGeek to create a list of music venues in (hopefully) the US or at least a portion of it.
-Using one or both of these APIs
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
-- https://platform.seatgeek.com/
+## Available Scripts
 
-# Functionality
+In the project directory, you can run:
 
-- Users will be able to search for venues in the United States possibly further, depending on the limits of the APIs, for venues, based on either ZIP Code or venue, name, or city name, or state name, which may change based on the capabilities of the APIs.
-- The homepage will have the search as its main focus, and every other page will have search capabilities in the header under the navigation.
-- After the search users will be brought to the listings page which will have any listings that match the criteria, and as a stretch, goal, a Google map.
-- Users can see a detail page after clicking on one of the listings, which will Sherwin image title description, address, webpage, and other pertinent information.
-- On the homepage, there will be a randomized carousel of venues at the bottom, which will have a photo a title and our clickable to the venue detail page
-- Basic non-functional storefront to follow the website concept and for a giggle. They will be listings of fake products, and as a stretch goal, if time is permitting, clicking on one will take one user to a detail page for that fake product.
-- Site will be responsive and readable at all device widths down to 500px.
+### `npm start`
 
-# Components (and Pages)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-![Site and component map](https://github.com/evilgeniuscreative/venues-list/blob/master/Site-component-map-v5.png "Site and component map")
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-# Stories
+### `npm test`
 
-https://evilgeniuscreative.atlassian.net/jira/software/projects/VEN/boards/9
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-(Please forgive me if I don't use the stilted "As a user of ... " language. No job I've ever had has used that. Just the facts, m'am. If you need me to add that to be acceptable, lmk).
+### `npm run build`
 
-# Wireframe
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-[Wireframe 8-page clickable PDF](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v5.pdf) i.e., [https://github.com/evilgeniuscreative/venues-list/edit/master/Venues-v5.pdf](https://github.com/evilgeniuscreative/venues-list/blob/master/Venues-v5.pdf)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-![Homepage image](https://github.com/evilgeniuscreative/venues-list/blob/master/Homepage.png "Homepage image")
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-![Mobile Homeage image](https://github.com/evilgeniuscreative/venues-list/blob/master/Mobile%20Homepage.png "Mobile Homepage image")
+### `npm run eject`
 
-# Stretch Goals
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- Google maps
-- Pagination of results
-- List upcoming shows at the venue
-- Store item detail page
-- Add a listing (will require a database)
-- Users can submit a venue via a React form if it is not listed (some very basic validation on existence will be created).
-- if the venue has been found to exist, there will be an error message saying so.
-- Thank you page follows a successful submission that has been validated did not already exist.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
