@@ -1,9 +1,9 @@
 import FooterVenues from './FooterVenues';
 
-function Footer() {
+function Footer({ handleApiCall }) {
   return (
-    <footer>
-      <FooterVenues />
+    <footer id='footer'>
+      <FooterVenues handleApiCall={handleApiCall} />
     </footer>
   );
 }

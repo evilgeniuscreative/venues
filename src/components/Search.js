@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-function Search({ handleChange, searchKey, results }) {
+function Search({ handleChange, searchKey, handleSearchKey, results }) {
   // eslint-disable-next-line
   const [pholder, setpHolder] = useState('Search Venues');
 

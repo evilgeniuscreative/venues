@@ -1,6 +1,6 @@
 import React from 'react';
  
-function Listings({ response }) {
+function Listings({ results }) {
   return (
     <>
       <section>Listings</section>

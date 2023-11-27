@@ -198,12 +198,59 @@ button {
 }
 
 /*/--------------  FOOTER  ----------------/*/
+#footer {
+  background-color: $aqua;
+  border-top: 3px solid black;
+  bottom: 0;
+  height: 150px;
+  padding: 10px 100px;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
 
 /*/--------------  CAROUSEL  ----------------/*/
 
 /*/--------------  LISTINGS  ----------------/*/
 
 /*/--------------  DETAIL  ----------------/*/
+
+#detail {
+  background: white;
+  border: 3px solid black;
+  width: 65%;
+  margin: 20px auto;
+
+  section.dao {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    figure {
+      grid-area: 1 / 1 / 4 / 3;
+    }
+    section.info {
+      grid-area: 1 / 3 / 4 / 7;
+    }
+    .left {
+      background: $orangecream;
+      grid-area: 4 / 1 / 5 / 3;
+      padding: 10px 30px;
+    }
+    .middle {
+      background: $orangecream;
+      grid-area: 4 / 3 / 5 / 5;
+    }
+    .right {
+      background: $orangecream;
+      grid-area: 4 / 5 / 5 / 7;
+      padding: 10px 30px;
+      text-align: right;
+    }
+  }
+}
 
 /*/--------------  SUBMIT FORM & THANK YOU  ----------------/*/
 
