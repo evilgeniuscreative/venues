@@ -22,8 +22,18 @@ function Detail({ results, pageTitle, setPageTitle }) {
         </figure>
 
         <section className='info'>
-          <p>{v.parkingDetail}</p>
-          <p>{v.generalInfo.generalRule}</p>
+          {v.generalInfo.generalRule.length > 0 ? <p> {v.generalInfo.generalRule} </p> : null}
+          {v.generalInfo.childRule.length > 0 ? <p> {v.generalInfo.childRule}</p> : null}
+          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.phoneNumberDetail > 0 ? <p>{v.boxOfficeInfo.phoneNumberDetail}</p> : null}
+          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.openHoursDetail > 0 ? <p>{v.boxOfficeInfo.openHoursDetail}</p> : null}
+          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.acceptedPaymentDetail > 0 ? <p>{v.boxOfficeInfo.acceptedPaymentDetail}</p> : null}
+          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.willCallDetail > 0 ? <p>{v.boxOfficeInfo.willCallDetail}</p> : null}
+
+          {v.accessibleSeatingDetail && v.accessibleSeatingDetail.length > 0 ? <p>ADA: {v.accessibleSeatingDetail}</p> : null}
+          {v.ada && v.ada.length > 0 && v.ada.adaPhones > 0 ? <p>ADA: {v.ada.adaPhones}</p> : null}
+          {v.ada && v.ada.length > 0 && v.ada.adaCustomCopy > 0 ? <p>ADA: {v.ada.adaCustomCopy}</p> : null}
+          {v.ada && v.ada.length > 0 && v.ada.adaHours > 0 ? <p>ADA: {v.ada.Hours}</p> : null}
+          {v.parkingDetail && v.parkingDetail.length > 0 ? <p> {v.parkingDetail}</p> : null}
         </section>
 
         <div className='left'>
