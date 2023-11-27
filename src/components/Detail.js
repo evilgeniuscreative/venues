@@ -27,14 +27,17 @@ function Detail({ results, pageTitle, setPageTitle }) {
         </section>
 
         <div className='left'>
-          Box Office: <a href='tel:{v.boxOfficeInfo.phoneNumberDetail}'>{v.boxOfficeInfo.phoneNumberDetail}</a>
+          Box Office: <br />
+          <a href='tel:{v.boxOfficeInfo.phoneNumberDetail}'>{v.boxOfficeInfo.phoneNumberDetail}</a>
           <br />@
           <a href={v.url} target='_blank' rel='noreferrer'>
             TM Venue Page
           </a>
         </div>
-        <div className='middle'></div>
+
         <div className='right'>
+          Address
+          <br />
           <a href={'https://www.google.com/maps/place/' + v.address.line1.replace(' ', '+') + ',+' + v.city.name + ',+' + v.state.stateCode + '+' + v.postalCode}>
             {v.address.line1}
             <br />
