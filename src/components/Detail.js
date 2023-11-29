@@ -1,61 +1,79 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { DataContext } from '../Contexts/DataContext';
+import { version } from 'react-dom';
 
-function Detail({ results, pageTitle, setPageTitle }) {
+function Detail() {
+  const results = useContext(DataContext);
+  // eslint-disable-next-line
+  const [thisVenue, setThisVenue] = useState(null);
+
   console.log('useParams():', useParams(), 'results:', results);
   const { id } = useParams();
-  console.log('id', id);
+  console.log('results details', results);
 
   console.log('id', id);
-  const v = results.find((v) => v.id === id);
-  console.log('v', v);
-  setPageTitle(v.name);
+
+  useEffect(() => {
+    const v = results.find((v) => v.id === id);
+    console.log('v', v);
+    setThisVenue(v);
+    console.log('v', v);
+  }, []);
+
+  // setPageTitle(thisVenue.name);
   // if (!id) {
   //   return <h1>Venue detail not found</h1>;
   // }
 
   return (
-    <main id='detail'>
-      <section className='dao'>
-        <figure>
-          <img src={v.images[0].url} alt={v.name} />
-        </figure>
+    <>
+      {thisVenue ? (
+        <main id='detail'>
+          <section className='dao'>
+            <figure>
+              <img src={thisVenue.images[0].url} alt={thisVenue.name} />
+            </figure>
 
-        <section className='info'>
-          {v.generalInfo.generalRule.length > 0 ? <p> {v.generalInfo.generalRule} </p> : null}
-          {v.generalInfo.childRule.length > 0 ? <p> {v.generalInfo.childRule}</p> : null}
-          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.phoneNumberDetail > 0 ? <p>{v.boxOfficeInfo.phoneNumberDetail}</p> : null}
-          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.openHoursDetail > 0 ? <p>{v.boxOfficeInfo.openHoursDetail}</p> : null}
-          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.acceptedPaymentDetail > 0 ? <p>{v.boxOfficeInfo.acceptedPaymentDetail}</p> : null}
-          {v.boxOfficeInfo && v.boxOfficeInfo.length && v.boxOfficeInfo.willCallDetail > 0 ? <p>{v.boxOfficeInfo.willCallDetail}</p> : null}
+            <section className='info'>
+              <p> {thisVenue.generalInfo.generalRule} </p>
+              <p> {thisVenue.generalInfo.childRule}</p>
+              <p>{thisVenue.boxOfficeInfo.phoneNumberDetail}</p>
+              <p>{thisVenue.boxOfficeInfo.openHoursDetail}</p>
+              <p>{thisVenue.boxOfficeInfo.acceptedPaymentDetail}</p>
+              <p>{thisVenue.boxOfficeInfo.willCallDetail}</p>
 
-          {v.accessibleSeatingDetail && v.accessibleSeatingDetail.length > 0 ? <p>ADA: {v.accessibleSeatingDetail}</p> : null}
-          {v.ada && v.ada.length > 0 && v.ada.adaPhones > 0 ? <p>ADA: {v.ada.adaPhones}</p> : null}
-          {v.ada && v.ada.length > 0 && v.ada.adaCustomCopy > 0 ? <p>ADA: {v.ada.adaCustomCopy}</p> : null}
-          {v.ada && v.ada.length > 0 && v.ada.adaHours > 0 ? <p>ADA: {v.ada.Hours}</p> : null}
-          {v.parkingDetail && v.parkingDetail.length > 0 ? <p> {v.parkingDetail}</p> : null}
-        </section>
+              <p>ADA: {thisVenue.accessibleSeatingDetail}</p>
+              <p>ADA: {thisVenue.ada.adaPhones}</p>
+              <p>ADA: {thisVenue.ada.adaCustomCopy}</p>
+              <p>ADA: {thisVenue.ada.Hours}</p>
+              <p> {thisVenue.parkingDetail}</p>
+            </section>
 
-        <div className='left'>
-          Box Office: <br />
-          <a href='tel:{v.boxOfficeInfo.phoneNumberDetail}'>{v.boxOfficeInfo.phoneNumberDetail}</a>
-          <br />@
-          <a href={v.url} target='_blank' rel='noreferrer'>
-            TM Venue Page
-          </a>
-        </div>
+            <div className='left'>
+              Box Office: <br />
+              <a href='tel:{thisVenue.boxOfficeInfo.phoneNumberDetail}'>{thisVenue.boxOfficeInfo.phoneNumberDetail}</a>
+              <br />@
+              <a href={thisVenue.url} target='_blank' rel='noreferrer'>
+                TM Venue Page
+              </a>
+            </div>
 
-        <div className='right'>
-          Address
-          <br />
-          <a href={'https://www.google.com/maps/place/' + v.address.line1.replace(' ', '+') + ',+' + v.city.name + ',+' + v.state.stateCode + '+' + v.postalCode}>
-            {v.address.line1}
-            <br />
-            {v.city.name},{v.state.name} {v.postalCode}
-          </a>
-        </div>
-      </section>
-    </main>
+            <div className='right'>
+              Address
+              <br />
+              <a href={'https://www.google.com/maps/place/' + thisVenue.address.line1.replace(' ', '+') + ',+' + thisVenue.city.name + ',+' + thisVenue.state.stateCode + '+' + thisVenue.postalCode}>
+                {thisVenue.address.line1}
+                <br />
+                {thisVenue.city.name},{thisVenue.state.name} {thisVenue.postalCode}
+              </a>
+            </div>
+          </section>
+        </main>
+      ) : (
+        <h2>...loading </h2>
+      )}
+    </>
   );
 }
 
