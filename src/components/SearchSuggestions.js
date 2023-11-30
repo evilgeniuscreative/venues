@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../Contexts/DataContext';
 import SearchSuggestion from './SearchSuggestion';
 
-function SearchSuggestions({results}) {
+function SearchSuggestions() {
+  const results = useContext(DataContext);
+
   console.log('Search Suggestions');
   return (
     <div id='searchSuggestions'>
-      <SearchSuggestion results={results} />
+      <SearchSuggestion  />
     </div>
   );
 }
