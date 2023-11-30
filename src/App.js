@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Route, Routes, Navigate, useParams } from 'react-router-dom';
 import { DataContext } from './Contexts/DataContext.js';
 
@@ -7,20 +7,20 @@ import Header from './components/Header';
 import Detail from './components/Detail';
 
 // import z from './data/zips-geopoint.js';
-import tmdata from './data/tmdata.js';
+// import tmdata from './data/tmdata.js';
 import './App.css';
 
 function App() {
   // const [zipCodes, setZipCodes] = useState(z);
+  const dataContext = useContext(DataContext);
   const [currPage, setCurrPage] = useState('home');
   const [dataset, setDataset] = useState({});
   const [pageTitle, setPageTitle] = useState('Find your venue');
-  const [query, setQuery] = useState('');
   const [results, setResults] = useState([]); // TO AVOID RERENDERS
   const [searchKey, setSearchKey] = useState('keyword');
   const [searchString, setSearchString] = useState('');
 
-  console.log('tmdata_raw', tmdata);
+  // console.log('tmdata_raw', tmdata);
 
   const venueID = useParams();
 
@@ -36,40 +36,43 @@ function App() {
     q: '?',
   };
 
-  // setSearchString((currSearchTerm) => {
-  //   const newSearchTerm = e.target.value;
-  //   return newSearchTerm;
-  // });
-
   const handleChange = (e) => {
     console.log('handleChange');
     e.preventDefault();
-    const newSearchString = e.target.value;
-    setSearchString(newSearchString);
 
-    if (searchString.length >= 3) {
-      setSearchString(newSearchString);
-    }
+    setSearchString((currSearchTerm) => {
+      const newSearchTerm = e.target.value;
+      console.log('newSearchTerm', newSearchTerm);
+      return newSearchTerm;
+    });
+
+    // handleApiCall(e);
   };
 
   const handleSearchKey = (e) => {
     console.log('handleSearchKey');
     e.preventDefault();
     setSearchKey(e.target.value);
-    console.log('searchKey', searchKey);
+    console.log('handleSearchKey', searchKey);
   };
 
   // Venue by id https://app.ticketmaster.com/discovery/v2/venues/:id.json?apikey=ggYrggByKvnlB9zvhAU4d5sCxQLo8hk5
 
   /*/--------------  API CALL   ----------------/*/
 
-  const handleApiCall = (e) => {
-    console.log('handleApiCall ');
+  const handleApiCall = () => {
+    console.log('handleApiCall ', searchString);
 
+    // setQuery(() => {
+    //  const newQ = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchString + TM.radius + TM.defaultLocales + TM.defaultSize + TM.sort;
+    // return newQ;
+    // })
+
+    let Query = '';
     switch (searchKey) {
       case 'keyword':
         // perform search by keyword, city, venue name
-        setQuery(TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchString + TM.radius + TM.defaultLocales + TM.defaultSize + TM.sort);
+        Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchString + TM.radius + TM.defaultLocales + TM.defaultSize + TM.sort;
         break;
 
       // case 'zipCode':
@@ -80,28 +83,26 @@ function App() {
 
       case 'geopoint':
         // perform search by geographic coordinates lat,long
-        setQuery(TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.defaultLocales + '&geoPoint=' + searchString + TM.sort);
+        Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.defaultLocales + '&geoPoint=' + searchString + TM.sort;
         break;
 
       case 'id':
         // perform search by id venueID only for Listing page
-        setQuery(TM.baseUrl + TM.vens + venueID.id + '.json' + TM.apiKey);
+        Query = TM.baseUrl + TM.vens + venueID.id + '.json' + TM.apiKey;
         break;
 
       default:
         // default case
-        setQuery(TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchString + TM.radius + TM.defaultLocales + TM.defaultSize);
+        Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchString + TM.radius + TM.defaultLocales + TM.defaultSize;
         break;
     }
-    console.log('searchKey: ', searchKey);
-    console.log('query: ', query);
 
-    fetch(query)
+    console.log('Query', Query);
+
+    fetch(Query)
       .then((response) => response.json())
       .then((response) => {
         setDataset(response); // whole dataset with all parent elements
-      })
-      .then((response) => {
         setResults(response._embedded.venues);
       })
       .catch(console.error);
@@ -112,18 +113,18 @@ function App() {
   /*/--------------  END API CALL  ----------------/*/
 
   // fetch from API
-  useEffect(() => {
-    setResults(tmdata._embedded.venues);
-    handleApiCall();
-  }, [searchString]);
+  // useEffect(() => {
+  //   // handleApiCall();
+  // }, [searchString]);
 
   return (
-    <DataContext.Provider value={{ results, currPage, setCurrPage, handleChange }}>
+    <DataContext.Provider value={{ results, currPage, setCurrPage, handleChange, handleApiCall }}>
       <div className='app'>
         <Header pageTitle={pageTitle} currPage={currPage} />
         <Routes>
+          {' '}
+          <Route path='/detail/:id' element={<Detail searchKey={searchKey} setSearchKey={setSearchKey} />} />
           <Route path='/' element={<Home />} />
-          <Route path='/detail/:id' element={<Detail />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </div>

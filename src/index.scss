@@ -52,6 +52,10 @@ code {
 h1 {
   text-align: center;
 }
+
+button {
+  cursor: pointer;
+}
 /*/--------------  SEARCH  ----------------/*/
 
 label {
@@ -93,7 +97,10 @@ button {
 }
 .form-second {
   position: relative;
-  flex-basis: 80%;
+  flex-basis: 70%;
+}
+.form-third {
+  flex-basis: 10%;
 }
 
 #searchSuggestions {

@@ -1,24 +1,19 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../Contexts/DataContext';
-import { version } from 'react-dom';
 
-function Detail() {
-  const results = useContext(DataContext);
-  // eslint-disable-next-line
+function Detail({ setSearchKey }) {
+  const dataContext = useContext(DataContext);
   const [thisVenue, setThisVenue] = useState(null);
 
-  console.log('useParams():', useParams(), 'results:', results);
   const { id } = useParams();
-  console.log('results details', results);
-
-  console.log('id', id);
 
   useEffect(() => {
-    const v = results.find((v) => v.id === id);
+    const v = dataContext.results.find((v) => v.id === id);
     console.log('v', v);
     setThisVenue(v);
     console.log('v', v);
+    setSearchKey('id');
   }, []);
 
   // setPageTitle(thisVenue.name);
