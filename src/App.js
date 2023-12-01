@@ -17,18 +17,18 @@ function App() {
   const [dataset, setDataset] = useState({});
   const [pageTitle, setPageTitle] = useState('Find your venue');
   const [results, setResults] = useState([]); // TO AVOID RERENDERS
-  const [searchKey, setSearchKey] = useState('keyword');
+  const [searchKey, setSearchKey] = useState('id');
+  const [venueID, setVenueID] = useState('');
   const [searchString, setSearchString] = useState('');
 
   // console.log('tmdata_raw', tmdata);
-
-  const venueID = useParams();
 
   const TM = {
     baseUrl: 'https://app.ticketmaster.com/discovery/v2/',
     apiKey: '&apikey=ggYrggByKvnlB9zvhAU4d5sCxQLo8hk5',
     vens: 'venues',
     keyword: '&keyword=',
+    id: '&id=',
     radius: '&radius=50&unit=miles',
     sort: '&sort=name,asc',
     defaultSize: '&size=200',
@@ -60,7 +60,7 @@ function App() {
 
   /*/--------------  API CALL   ----------------/*/
 
-  const handleApiCall = () => {
+  const handleApiCall = (info) => {
     console.log('handleApiCall ', searchString);
 
     // setQuery(() => {
@@ -88,7 +88,9 @@ function App() {
 
       case 'id':
         // perform search by id venueID only for Listing page
-        Query = TM.baseUrl + TM.vens + venueID.id + '.json' + TM.apiKey;
+
+        //venues?apikey=ggYrggByKvnlB9zvhAU4d5sCxQLo8hk5&id=KovZ917AI6i&locale=*
+        Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.id + info + TM.defaultLocales;
         break;
 
       default:
@@ -104,10 +106,10 @@ function App() {
       .then((response) => {
         setDataset(response); // whole dataset with all parent elements
         setResults(response._embedded.venues);
+        console.log('response', response);
+        console.log('results', response._embedded.venues);
       })
       .catch(console.error);
-    console.log('fetch dataset', dataset);
-    console.log('fetch results', results);
   };
 
   /*/--------------  END API CALL  ----------------/*/
@@ -118,7 +120,7 @@ function App() {
   // }, [searchString]);
 
   return (
-    <DataContext.Provider value={{ results, currPage, setCurrPage, handleChange, handleApiCall }}>
+    <DataContext.Provider value={{ searchKey, setSearchKey, results, currPage, setCurrPage, handleChange, handleApiCall }}>
       <div className='app'>
         <Header pageTitle={pageTitle} currPage={currPage} />
         <Routes>

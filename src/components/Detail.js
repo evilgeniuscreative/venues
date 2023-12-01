@@ -2,20 +2,24 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../Contexts/DataContext';
 
-function Detail({ setSearchKey }) {
+function Detail() {
   const dataContext = useContext(DataContext);
   const [thisVenue, setThisVenue] = useState(null);
-
   const { id } = useParams();
 
   useEffect(() => {
-    const v = dataContext.results.find((v) => v.id === id);
-    console.log('v', v);
-    setThisVenue(v);
-    console.log('v', v);
-    setSearchKey('id');
-  }, []);
+    dataContext.setSearchKey('id');
+    console.log('dataContext', dataContext);
+    dataContext.handleApiCall(id);
+  }, [id]);
 
+  useEffect(() => {
+    if (dataContext.results.length > 0 && id) {
+      setThisVenue(dataContext.results[0]);
+    }
+  }, [dataContext.results, id]);
+
+  console.log('dataContext.results', dataContext.results);
   // setPageTitle(thisVenue.name);
   // if (!id) {
   //   return <h1>Venue detail not found</h1>;
@@ -26,9 +30,7 @@ function Detail({ setSearchKey }) {
       {thisVenue ? (
         <main id='detail'>
           <section className='dao'>
-            <figure>
-              <img src={thisVenue.images[0].url} alt={thisVenue.name} />
-            </figure>
+            <figure>{thisVenue.images && thisVenue.images.length > 0 ? (<img src={thisVenue.images[0].url} alt={thisVenue.name} /> ): ('noimg')}</figure>
 
             <section className='info'>
               <p> {thisVenue.generalInfo.generalRule} </p>
