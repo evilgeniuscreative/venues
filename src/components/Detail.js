@@ -5,12 +5,16 @@ import { DataContext } from '../Contexts/DataContext';
 function Detail() {
   const dataContext = useContext(DataContext);
   const [thisVenue, setThisVenue] = useState(null);
+  const [venueImg, setVenuImg] = useState('');
+  const [imgDataset, setImgDataset] = useState('');
+  const [imgResults, setImgResults] = useState('');
+
   const { id } = useParams();
 
   useEffect(() => {
     dataContext.setSearchKey('id');
     console.log('dataContext', dataContext);
-    dataContext.handleApiCall(id);
+    dataContext.handleApiCall(dataContext.searchKey, dataContext.searchText);
   }, [id]);
 
   useEffect(() => {
@@ -30,7 +34,7 @@ function Detail() {
       {thisVenue ? (
         <main id='detail'>
           <section className='dao'>
-            <figure>{thisVenue.images && thisVenue.images.length > 0 ? (<img src={thisVenue.images[0].url} alt={thisVenue.name} /> ): ('noimg')}</figure>
+            <figure>{thisVenue.images && thisVenue.images.length > 0 ? <img src={thisVenue.images[0].url} alt={thisVenue.name} /> : 'noimg'}</figure>
 
             <section className='info'>
               <p> {thisVenue.generalInfo.generalRule} </p>
