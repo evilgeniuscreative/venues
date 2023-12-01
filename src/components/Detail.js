@@ -1,11 +1,11 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../Contexts/DataContext';
-import { type } from '@testing-library/user-event/dist/type';
 
 /*/--------------  WIKIMEDIA  ----------------/*/
 
 async function fetchWMData(searchTerm) {
+  console.log('searchTerm', searchTerm);
   try {
     let url =
       'https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=' +
@@ -49,17 +49,19 @@ function Detail() {
       setThisVenue(dataContext.results[0]);
       console.log('venue', dataContext.results[0]);
     }
+
     async function getUsableImage() {
       try {
-        const vimg = await fetchWMData(dataContext.results[0].name);
+        const vimg = await fetchWMData(thisVenue.name);
         const whichPage = Object.keys(vimg.query.pages)[0];
         const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
         setVenueImg(WMimg);
-        return WMimg;
+        console.log('venueImg', venueImg);
       } catch (error) {
         console.error('Error:', error);
       }
     }
+    getUsableImage();
   }, [dataContext.results, id, venueImg]);
 
   // setPageTitle(thisVenue.name);
