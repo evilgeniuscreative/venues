@@ -77,7 +77,7 @@ function App() {
     switch (searchKey) {
       case 'keyword':
         // perform search by keyword, city, venue name
-        Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchText + TM.radius + TM.defaultLocales + TM.defaultSize + TM.sort;
+        Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchString + TM.radius + TM.defaultLocales + TM.defaultSize + TM.sort;
         break;
 
       // case 'zipCode':
@@ -125,7 +125,7 @@ function App() {
   // }, [searchString]);
 
   return (
-    <DataContext.Provider value={{ searchKey, setSearchKey, handleSearchKey, results, currPage, setCurrPage, handleChange, handleApiCall }}>
+    <DataContext.Provider value={{ searchKey, setSearchKey, searchString, setSearchString, handleSearchKey, results, currPage, setCurrPage, handleChange, handleApiCall }}>
       <div className='app'>
         <Header pageTitle={pageTitle} currPage={currPage} />
         <Routes>

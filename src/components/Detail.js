@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../Contexts/DataContext';
-import { type } from '@testing-library/user-event/dist/type';
 
 /*/--------------  WIKIMEDIA  ----------------/*/
 
@@ -40,27 +39,35 @@ function Detail() {
 
   useEffect(() => {
     dataContext.setSearchKey('id');
-    console.log('dataContext', dataContext);
-    dataContext.handleApiCall(dataContext.searchKey, dataContext.searchText);
+    console.log('dataContext 1', dataContext);
+    dataContext.handleApiCall(dataContext.searchKey, id);
   }, [id]);
 
   useEffect(() => {
-    if (dataContext.results.length > 0 && id) {
-      setThisVenue(dataContext.results[0]);
-      console.log('venue', dataContext.results[0]);
-    }
-    async function getUsableImage() {
-      try {
-        const vimg = await fetchWMData(dataContext.results[0].name);
-        const whichPage = Object.keys(vimg.query.pages)[0];
-        const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
-        setVenueImg(WMimg);
-        return WMimg;
-      } catch (error) {
-        console.error('Error:', error);
+    if (id) {
+      async function getUsableImage() {
+        try {
+          // Fetch additional data based on venue ID
+          let detailedSearchTerm = thisVenue.name;
+          if (thisVenue.city && thisVenue.city.name) {
+            detailedSearchTerm = thisVenue.name + thisVenue.city.name;
+          }
+          const vimg = await fetchWMData(detailedSearchTerm); // Use thisVenue.name or any other identifier that corresponds to the venue
+          const whichPage = Object.keys(vimg.query.pages)[0];
+          const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
+          setVenueImg(WMimg);
+        } catch (error) {
+          console.error('Error:', error);
+        }
       }
+
+      // Set venue and fetch image
+
+      setThisVenue(dataContext.results.find((venue) => venue.id === id));
+        getUsableImage();
+   
     }
-  }, [dataContext.results, id, venueImg]);
+  }, [dataContext.results, id]);
 
   // setPageTitle(thisVenue.name);
   // if (!id) {
@@ -75,8 +82,12 @@ function Detail() {
             <figure>{thisVenue.images && thisVenue.images.length > 0 ? <img src={venueImg} alt={thisVenue.name} /> : 'noimg'}</figure>
 
             <section className='info'>
-              <p> {thisVenue.generalInfo.generalRule} </p>
-              <p> {thisVenue.generalInfo.childRule}</p>
+              <p> {thisVenue.generalInfo && thisVenue.generalInfo.generalRule ? thisVenue.generalInfo.generalRule : null} </p>
+              <p> {thisVenue.generalInfo && thisVenue.generalInfo.childRule ? thisVenue.generalInfo.childRule : null} </p>
+
+              <p> {thisVenue.boxOfficeInfo && thisVenue.boxOfficeInfo.phoneNumberDetail ? thisVenue.boxOfficeInfo.phoneNumberDetail : null} </p>
+
+              {/*               
               <p>{thisVenue.boxOfficeInfo.phoneNumberDetail}</p>
               <p>{thisVenue.boxOfficeInfo.openHoursDetail}</p>
               <p>{thisVenue.boxOfficeInfo.acceptedPaymentDetail}</p>
@@ -86,14 +97,16 @@ function Detail() {
               <p>ADA: {thisVenue.ada.adaPhones}</p>
               <p>ADA: {thisVenue.ada.adaCustomCopy}</p>
               <p>ADA: {thisVenue.ada.Hours}</p>
-              <p> {thisVenue.parkingDetail}</p>
+              <p> {thisVenue.parkingDetail}</p> */}
             </section>
 
             <div className='left'>
               Box Office: <br />
-              <a href='tel:{thisVenue.boxOfficeInfo.phoneNumberDetail}'>{thisVenue.boxOfficeInfo.phoneNumberDetail}</a>
+              <a href='tel:{thisVenue.boxOfficeInfo && thisVenue.boxOfficeInfo.phoneNumberDetail ? thisVenue.boxOfficeInfo.phoneNumberDetail : null}}'>
+                {thisVenue.boxOfficeInfo && thisVenue.boxOfficeInfo.phoneNumberDetail ? thisVenue.boxOfficeInfo.phoneNumberDetail : null}
+              </a>
               <br />@
-              <a href={thisVenue.url} target='_blank' rel='noreferrer'>
+              <a href={thisVenue.url ? thisVenue && thisVenue.url : thisVenue.url} target='_blank' rel='noreferrer'>
                 TM Venue Page
               </a>
             </div>
@@ -101,10 +114,14 @@ function Detail() {
             <div className='right'>
               Address
               <br />
-              <a href={'https://www.google.com/maps/place/' + thisVenue.address.line1.replace(' ', '+') + ',+' + thisVenue.city.name + ',+' + thisVenue.state.stateCode + '+' + thisVenue.postalCode}>
-                {thisVenue.address.line1}
+              <a
+                href={`https://www.google.com/maps/place/${thisVenue.address?.line1 ? thisVenue.address.line1.replace(' ', '+') : ''},+${thisVenue.city?.name || ''},+${
+                  thisVenue.state?.stateCode || ''
+                }+${thisVenue.postalCode || ''}`}
+              >
+                {thisVenue.address?.line1 || ''}
                 <br />
-                {thisVenue.city.name},{thisVenue.state.name} {thisVenue.postalCode}
+                {thisVenue.city?.name || ''}, {thisVenue.state?.name || ''} {thisVenue.postalCode || ''}
               </a>
             </div>
           </section>
