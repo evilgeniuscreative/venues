@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../Contexts/DataContext';
+import { DataContext } from '../../Contexts/DataContext';
 import SearchSuggestion from './SearchSuggestion';
 
 function SearchSuggestions() {

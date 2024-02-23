@@ -1,0 +1,29 @@
+{
+  "batchcomplete": "",
+  "continue": { "gsroffset": 1, "continue": "gsroffset||" },
+  "query": {
+    "pages": {
+      "62311810": {
+        "pageid": 62311810,
+        "ns": 6,
+        "title": "File:Interior of little Caesars arena panorama.jpg",
+        "index": 1,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Interior_of_little_Caesars_arena_panorama.jpg/1500px-Interior_of_little_Caesars_arena_panorama.jpg",
+            "thumbwidth": 1500,
+            "thumbheight": 708,
+            "responsiveUrls": {
+              "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Interior_of_little_Caesars_arena_panorama.jpg/2249px-Interior_of_little_Caesars_arena_panorama.jpg",
+              "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Interior_of_little_Caesars_arena_panorama.jpg/2999px-Interior_of_little_Caesars_arena_panorama.jpg"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Interior_of_little_Caesars_arena_panorama.jpg",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Interior_of_little_Caesars_arena_panorama.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=62311810"
+          }
+        ]
+      }
+    }
+  }
+}

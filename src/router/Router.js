@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from '../components/Home';
-import Listing from '../components/Listing';
+import Listing from '../components/Listings/Listing';
 
 function Routers() {
   return (

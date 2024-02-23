@@ -3,8 +3,8 @@ import { Route, Routes, Navigate, useParams } from 'react-router-dom';
 import { DataContext } from './Contexts/DataContext.js';
 
 import Home from './components/Home';
-import Header from './components/Header';
-import Detail from './components/Detail';
+import Header from './components/Header/Header';
+import Detail from './components/Details/Detail';
 
 // import z from './data/zips-geopoint.js';
 // import tmdata from './data/tmdata.js';
@@ -75,6 +75,12 @@ function App() {
 
     let Query = '';
     switch (searchKey) {
+
+      case 'random':
+        // perform search by random
+        // Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.defaultLocales + '&size=5';
+        break;
+
       case 'keyword':
         // perform search by keyword, city, venue name
         Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.keyword + searchString + TM.radius + TM.defaultLocales + TM.defaultSize + TM.sort;

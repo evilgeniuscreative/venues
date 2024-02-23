@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { DataContext } from '../Contexts/DataContext';
+import { DataContext } from '../../Contexts/DataContext';
 
 function Search() {
   const dataContext = useContext(DataContext);

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { DataContext } from '../Contexts/DataContext';
+import { DataContext } from '../../Contexts/DataContext';
 
 /*/--------------  WIKIMEDIA  ----------------/*/
 
@@ -22,6 +22,7 @@ async function fetchWMData(searchTerm) {
     return data;
   } catch (error) {
     console.error('Error:', error);
+    // what do we want to do here if there is an error? show an alert ?
     throw error; // Re-throw the error to handle it outside this function if needed
   }
 }
@@ -35,11 +36,13 @@ function Detail() {
   const [imgDataset, setImgDataset] = useState('');
   const [imgResults, setImgResults] = useState('');
 
-  const { id } = useParams();
+  const { id } = useParams(); // the id of the venue
+  let venueData;
 
   useEffect(() => {
     dataContext.setSearchKey('id');
     console.log('dataContext 1', dataContext);
+
     dataContext.handleApiCall(dataContext.searchKey, id);
   }, [id]);
 
@@ -48,11 +51,11 @@ function Detail() {
       async function getUsableImage() {
         try {
           // Fetch additional data based on venue ID
-          let detailedSearchTerm = thisVenue.name;
-          if (thisVenue.city && thisVenue.city.name) {
-            detailedSearchTerm = thisVenue.name + thisVenue.city.name;
-          }
-          const vimg = await fetchWMData(detailedSearchTerm); // Use thisVenue.name or any other identifier that corresponds to the venue
+          // let detailedSearchTerm = thisVenue.name;
+          // if (thisVenue.city && thisVenue.city.name) {
+          //   detailedSearchTerm = thisVenue.name + thisVenue.city.name;
+          // }
+          const vimg = await fetchWMData(thisVenue.name); // Use thisVenue.name or any other identifier that corresponds to the venue
           const whichPage = Object.keys(vimg.query.pages)[0];
           const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
           setVenueImg(WMimg);
@@ -64,8 +67,7 @@ function Detail() {
       // Set venue and fetch image
 
       setThisVenue(dataContext.results.find((venue) => venue.id === id));
-        getUsableImage();
-   
+      getUsableImage();
     }
   }, [dataContext.results, id]);
 
