@@ -16,7 +16,7 @@ function GetImage(venueDetails){
                 const vimg = await FetchWMData(venueDetails); // Use thisVenue.name or any other identifier that corresponds to the venue
                 const whichPage = Object.keys(vimg.query.pages)[0];
                 const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
-                console.log('WMimg', WMimg);
+                console.log('WMimg (GetImage.js)', WMimg);
                 setVenueImg(WMimg);
             } catch (error) {
                 console.error('Error:', error);

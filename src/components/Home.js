@@ -35,7 +35,7 @@ function Home() {
   });
 
   const op = OrganizeListFromOutput(footerResults);
-  console.log('op', op);
+  console.log('op (Home.js)', op);
 
   return (
     <main className='home'>

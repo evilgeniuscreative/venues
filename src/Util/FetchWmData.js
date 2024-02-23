@@ -19,7 +19,7 @@ async function FetchWmData(searchTerm) {
         return await response.json();
 
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error (FetchWmData):', error);
         // what do we want to do here if there is an error? show an alert ?
         throw error; // Re-throw the error to handle it outside this function if needed
     }
