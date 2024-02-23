@@ -8,7 +8,8 @@ modifedListOfImages->
 {src, alt, title, styleClass, href}]
 
 */
-import fetchWmData from "./FetchWmData";
+import GetImage from "./GetImage";
+
 
 function OrganizeListFromOutput(results) {
 
@@ -18,7 +19,7 @@ function OrganizeListFromOutput(results) {
                 id: venue.id,
                 title: venue.name,
                 link: venue.url,
-                src: fetchWmData(venue.name + ' ' + venue.address + ' ' + venue.city.name + ' ' + venue.state.name),
+                src: GetImage(venue.name + ' ' + venue.address + ' ' + venue.city.name + ' ' + venue.state.name),
                 location: venue.location,
                 postCode: venue.postalCode
             }

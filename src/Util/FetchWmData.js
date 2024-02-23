@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from 'react';
 
 /*/--------------  WIKIMEDIA  ----------------/*/
 
-async function FetchWMData(searchTerm) {
+async function FetchWmData(searchTerm) {
     try {
         let url =
             'https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=' +
@@ -27,29 +27,4 @@ async function FetchWMData(searchTerm) {
 
 /*/--------------  END  ----------------/*/
 
-function GetImage(){
-    const [thisVenue, setThisVenue] = useState(null);
-    const [venueImg, setVenueImg] = useState('');
-
-    useEffect( ()=>{
-        async function getUsableImage() {
-            try {
-                // Fetch additional data based on venue ID
-                // let detailedSearchTerm = thisVenue.name;
-                // if (thisVenue.city && thisVenue.city.name) {
-                //   detailedSearchTerm = thisVenue.name + thisVenue.city.name;
-                // }
-                const vimg = await FetchWMData(thisVenue.name); // Use thisVenue.name or any other identifier that corresponds to the venue
-                const whichPage = Object.keys(vimg.query.pages)[0];
-                const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
-                setVenueImg(WMimg);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-
-        getUsableImage();
-    })
-}
-
-export {FetchWMData, GetImage};
+export default FetchWmData;
