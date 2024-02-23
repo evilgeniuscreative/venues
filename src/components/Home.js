@@ -20,7 +20,7 @@ function Home() {
     setCurrPage('home');
   }, [setCurrPage]);
 
-  console.log({ results });
+  console.log('results (Home.js)',{ results });
 
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function Home() {
         .then((response) => {
           setFooterDataset(response); // whole dataset with all parent elements
            setFooterResults(response._embedded.venues);
-            console.log('response', response._embedded.venues);
+            console.log('response (Home.js)', response._embedded.venues);
         })
         .catch(console.error);
   });
