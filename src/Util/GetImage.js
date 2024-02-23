@@ -5,6 +5,8 @@ function GetImage(venueDetails){
     const [thisVenue, setThisVenue] = useState(null);
     const [venueImg, setVenueImg] = useState('');
 
+    // THIS IS COPIED MORE OR LESS FROM WHEN IT WORKED ON DETAIL.JS
+
     useEffect( (venueDetails)=>{
         async function getUsableImage(venueDetails) {
             try {
