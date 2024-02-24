@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../../Contexts/DataContext';
 import { fetchWmData } from '../../Util/fetchWmData';
+import { getUsableImage } from '../../Util/getImage';
 
 function Detail() {
   const dataContext = useContext(DataContext);
@@ -22,26 +23,17 @@ function Detail() {
 
   useEffect(() => {
     if (id) {
-      async function getUsableImage() {
-        try {
-          // Fetch additional data based on venue ID
-          // let detailedSearchTerm = thisVenue.name;
-          // if (thisVenue.city && thisVenue.city.name) {
-          //   detailedSearchTerm = thisVenue.name + thisVenue.city.name;
-          // }
-          const vimg = await fetchWmData(thisVenue.name); // Use thisVenue.name or any other identifier that corresponds to the venue
-          const whichPage = Object.keys(vimg.query.pages)[0];
-          const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
-          setVenueImg(WMimg);
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      }
-
       // Set venue and fetch image
 
-      setThisVenue(dataContext.results.find((venue) => venue.id === id));
-      getUsableImage();
+      setThisVenue(
+        dataContext.results.find(async (venue) => {
+          console.log('VENUE', venue);
+          let venueSearchString = venue.name + ' ' + venue.address + ' ' + venue.city.name + ' ' + venue.state.name;
+          console.log({ ImageWeAreSetting: await getUsableImage(venueSearchString) });
+          setVenueImg(await getUsableImage(venueSearchString));
+          return venue.id === id;
+        })
+      );
     }
   }, [dataContext.results, id]);
 
@@ -49,6 +41,7 @@ function Detail() {
   // if (!id) {
   //   return <h1>Venue detail not found</h1>;
   // }
+  console.log({ thisVenue });
 
   return (
     <>
