@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from 'react';
 
 /*/--------------  WIKIMEDIA  ----------------/*/
 
-async function FetchWmData(searchTerm) {
+async function fetchWmData(searchTerm) {
     try {
         let url =
             'https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=' +
@@ -27,4 +27,4 @@ async function FetchWmData(searchTerm) {
 
 /*/--------------  END  ----------------/*/
 
-export default FetchWmData;
+export default fetchWmData;
