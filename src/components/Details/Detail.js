@@ -24,13 +24,13 @@ function Detail() {
   useEffect(() => {
     if (id) {
       // Set venue and fetch image
-
+      console.log('this is datacontext.results ', dataContext.results);
       setThisVenue(
         dataContext.results.find(async (venue) => {
-          console.log('VENUE', venue);
           let venueSearchString = venue.name + ' ' + venue.address + ' ' + venue.city.name + ' ' + venue.state.name;
           console.log({ ImageWeAreSetting: await getUsableImage(venueSearchString) });
           setVenueImg(await getUsableImage(venueSearchString));
+          console.log('VENUE', venue);
           return venue.id === id;
         })
       );
