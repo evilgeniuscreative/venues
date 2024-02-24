@@ -6,9 +6,7 @@ import Search from './Search/Search';
 import { DataContext } from '../Contexts/DataContext';
 import SearchSuggestions from './Search/SearchSuggestions';
 import { Footer as FullFooter } from './Footer/FullFooter';
-import useFooterData from '../Util/useFooterData';
-import OrganizeListFromOutput from '../Util/organizeListFromOutput';
-import footer from './Footer/Footer';
+
 
 function Home() {
   const { results, setCurrPage } = useContext(DataContext);

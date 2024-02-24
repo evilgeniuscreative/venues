@@ -1,33 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../../Contexts/DataContext';
-
-/*/--------------  WIKIMEDIA  ----------------/*/
-
-async function fetchWMData(searchTerm) {
-  try {
-    let url =
-      'https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=' +
-      encodeURIComponent(searchTerm) +
-      '&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url&iiurlwidth=1500&origin=*';
-    let response = await fetch(url, {
-      headers: {
-        Authorization: process.env.REACT_APP_WM_TOKEN,
-        'Api-User-Agent': 'Venues',
-      },
-    });
-
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    console.error('Error:', error);
-    // what do we want to do here if there is an error? show an alert ?
-    throw error; // Re-throw the error to handle it outside this function if needed
-  }
-}
-
-/*/--------------  END  ----------------/*/
+import { fetchWmData } from '../../Util/fetchWmData';
 
 function Detail() {
   const dataContext = useContext(DataContext);
@@ -55,7 +29,7 @@ function Detail() {
           // if (thisVenue.city && thisVenue.city.name) {
           //   detailedSearchTerm = thisVenue.name + thisVenue.city.name;
           // }
-          const vimg = await fetchWMData(thisVenue.name); // Use thisVenue.name or any other identifier that corresponds to the venue
+          const vimg = await fetchWmData(thisVenue.name); // Use thisVenue.name or any other identifier that corresponds to the venue
           const whichPage = Object.keys(vimg.query.pages)[0];
           const WMimg = vimg.query.pages[whichPage].imageinfo[0].thumburl;
           setVenueImg(WMimg);

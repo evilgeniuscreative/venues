@@ -75,7 +75,6 @@ function App() {
 
     let Query = '';
     switch (searchKey) {
-
       case 'random':
         // perform search by random
         // Query = TM.baseUrl + TM.vens + TM.q + TM.apiKey + TM.defaultLocales + '&size=5';
@@ -135,7 +134,6 @@ function App() {
       <div className='app'>
         <Header pageTitle={pageTitle} currPage={currPage} />
         <Routes>
-          {' '}
           <Route path='/detail/:id' element={<Detail searchKey={searchKey} setSearchKey={setSearchKey} />} />
           <Route path='/' element={<Home />} />
           <Route path='*' element={<Navigate to='/' />} />
