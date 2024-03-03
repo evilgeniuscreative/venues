@@ -183,7 +183,7 @@ button {
 }
 
 /*/--------------  FOOTER  ----------------/*/
-#footer {
+.footer-section {
   background-color: var(--aqua);
   border-top: 3px solid black;
   bottom: 0;
@@ -195,6 +195,17 @@ button {
 }
 
 /*/--------------  CAROUSEL  ----------------/*/
+.fullFooter {
+  background-color: var(--aqua);
+  display: flex;
+  justify-content: space-between;
+}
+.fullFooter a figure {
+  width: 125px;
+  height: 100px;
+  background-size: cover;
+}
+
 /*/--------------  LISTINGS  ----------------/*/
 /*/--------------  DETAIL  ----------------/*/
 #detail {

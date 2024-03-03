@@ -1,0 +1,7 @@
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-section a figure img {
+  width: 100px;
+}/*# sourceMappingURL=FullFooter.css.map */

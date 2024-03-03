@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Images from '../Images/Images';
+import React from 'react';
+import BGImage from '../Images/bgImg';
 
 // backgroundColor: 'blue' |'red'
 // text: string
@@ -12,14 +12,15 @@ import Images from '../Images/Images';
 // title
 
 const Footer = ({ data, text, styleClass }) => {
+  console.log({ fromFooter: data });
   return (
     <div className={styleClass}>
       {text && text}
       {data.length &&
         data.map((image) => {
           return (
-            <a key={image.place.id} href={image.place.url || '#'}>
-              <Images src={image.place.src} alt={image.place.alt} styleClass={image.place.styleClass} title={image.place.title} />
+            <a key={image.place.id} href={`/detail/${image.place.id}` || '#'}>
+              <BGImage src={image.place.src} alt={image.place.alt} styleClass={image.place.styleClass} title={image.place.title} />
             </a>
           );
         })}

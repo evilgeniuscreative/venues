@@ -217,6 +217,18 @@ button {
 }
 
 /*/--------------  CAROUSEL  ----------------/*/
+.fullFooter {
+  background-color: var(--aqua);
+  display: flex;
+  justify-content: space-between;
+  a {
+    figure {
+      width: 125px;
+      height: 100px;
+      background-size: cover;
+    }
+  }
+}
 
 /*/--------------  LISTINGS  ----------------/*/
 

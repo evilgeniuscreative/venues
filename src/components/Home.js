@@ -7,7 +7,6 @@ import { DataContext } from '../Contexts/DataContext';
 import SearchSuggestions from './Search/SearchSuggestions';
 import { Footer as FullFooter } from './Footer/FullFooter';
 
-
 function Home() {
   const { results, setCurrPage } = useContext(DataContext);
   const [footerDataset, setFooterDataset] = useState({});
@@ -34,7 +33,8 @@ function Home() {
         <article className='maintext'>If you love live performance and traveling, let us find venues for you ... wherever is on your bucket list.</article>
         <Search />
         <div id='searchResults'>{results && results.length > 0 ? <SearchSuggestions results={results} /> : null}</div>
-        <FullFooter data={footerResults} includeImage styleClass='footer-section' />
+
+        <FullFooter data={footerResults} includeImage styleClass='fullFooter' />
       </section>
     </main>
   );

@@ -1,0 +1,11 @@
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  a {
+    figure {
+      img {
+        width: 100px;
+      }
+    }
+  }
+}
