@@ -34,7 +34,7 @@ function App() {
     id: '&id=',
     radius: '&radius=50&unit=miles',
     sort: '&sort=name,asc',
-    defaultSize: '&size=200',
+    defaultSize: '&size=5',
     defaultLocales: '&locale=*',
     q: '?',
   };
