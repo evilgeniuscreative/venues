@@ -19,7 +19,7 @@ function Detail() {
     console.log('dataContext 1', dataContext);
 
     dataContext.handleApiCall(dataContext.searchKey, id);
-  }, [id]);
+  }, [dataContext, id]);
 
   useEffect(() => {
     if (id) {

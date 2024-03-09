@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Route, Routes, Navigate, useParams } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { DataContext } from './Contexts/DataContext.js';
 
 import Home from './components/Home';
@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   // const [zipCodes, setZipCodes] = useState(z);
-  const dataContext = useContext(DataContext);
+  //  const dataContext = useContext(DataContext);
   const [currPage, setCurrPage] = useState('home');
   const [dataset, setDataset] = useState({});
   const [pageTitle, setPageTitle] = useState('Find your venue');
