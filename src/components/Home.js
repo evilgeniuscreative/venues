@@ -6,7 +6,7 @@ import OrganizeFooterData from '../Util/organizeListFromOutput';
 import Search from './Search/Search';
 import { DataContext } from '../Contexts/DataContext';
 import SearchSuggestions from './Search/SearchSuggestions';
-import { Footer as FullFooter } from './Footer/FullFooter';
+import {  FullFooter } from './Footer/FullFooter';
 
 function Home() {
   const { results, setCurrPage } = useContext(DataContext);
@@ -26,7 +26,7 @@ function Home() {
         setFooterResults(await OrganizeFooterData(response._embedded.venues));
       })
       .catch(console.error);
-  }, []);
+  });
 
   return (
     <main className='home'>

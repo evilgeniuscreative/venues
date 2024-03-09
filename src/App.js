@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { DataContext } from './Contexts/DataContext.js';
 
 import Home from './components/Home';
-import Header from './components/Header/Header';
+import {Header} from './components/Header/Header';
 import Detail from './components/Details/Detail';
 
 // import z from './data/zips-geopoint.js';
@@ -14,10 +14,13 @@ function App() {
   // const [zipCodes, setZipCodes] = useState(z);
   //  const dataContext = useContext(DataContext);
   const [currPage, setCurrPage] = useState('home');
+  // eslint-disable-next-line no-unused-vars
   const [dataset, setDataset] = useState({});
+  // eslint-disable-next-line no-unused-vars
   const [pageTitle, setPageTitle] = useState('Find your venue');
   const [results, setResults] = useState([]); // TO AVOID RERENDERS
   const [searchKey, setSearchKey] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [venueID, setVenueID] = useState('');
   const [searchString, setSearchString] = useState('');
 

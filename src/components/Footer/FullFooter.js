@@ -11,7 +11,7 @@ import BGImage from '../Images/bgImg';
 // styleClass
 // title
 
-const Footer = ({ data, text, styleClass }) => {
+const FullFooter = ({ data, text, styleClass }) => {
   console.log({ fromFooter: data });
   return (
     <div className={styleClass}>
@@ -28,4 +28,4 @@ const Footer = ({ data, text, styleClass }) => {
   );
 };
 
-export { Footer };
+export { FullFooter };

@@ -19,4 +19,4 @@ function Header({ pageTitle, currPage }) {
   );
 }
 
-export default Header;
+export {Header};

@@ -1,18 +1,15 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../../Contexts/DataContext';
-import { fetchWmData } from '../../Util/fetchWmData';
 import { getUsableImage } from '../../Util/getImage';
 
 function Detail() {
   const dataContext = useContext(DataContext);
   const [thisVenue, setThisVenue] = useState(null);
   const [venueImg, setVenueImg] = useState('');
-  const [imgDataset, setImgDataset] = useState('');
-  const [imgResults, setImgResults] = useState('');
+
 
   const { id } = useParams(); // the id of the venue
-  let venueData;
 
   useEffect(() => {
     dataContext.setSearchKey('id');
