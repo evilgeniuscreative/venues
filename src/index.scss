@@ -215,7 +215,8 @@ button {
   justify-content: space-between;
   position:fixed;
   padding:10px 0 10px;
-  width:100%;       
+  width:100%;     
+
   h4 {
     background:rgba(0, 0, 0, 0.7);
     border-top-right-radius: 5px;
@@ -231,6 +232,7 @@ button {
       transition: $transition-all 0.3s;
     }
   }
+
   a {
     display:flex;
     flex-direction: row;
@@ -238,10 +240,11 @@ button {
     flex-basis:20%;
     justify-content: center;
     width:15%;
+
     figure {
       width: 100%;
       height: 150px;
-      background-size: cover;
+      background-size: 130%;
       background-position: center,center;
       border-radius:5px;
     }

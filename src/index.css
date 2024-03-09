@@ -220,7 +220,7 @@ button {
 .fullFooter a figure {
   width: 100%;
   height: 150px;
-  background-size: cover;
+  background-size: 130%;
   background-position: center, center;
   border-radius: 5px;
 }
