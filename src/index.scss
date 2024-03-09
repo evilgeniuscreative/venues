@@ -5,6 +5,7 @@
   --orangecream: #f6b26b;
   --purple: #351c75;
   --textcolor: #444;
+  --border-radius:5px;
 }
 
 /*/--------------  SCSS VARS  ----------------/*/
@@ -17,7 +18,6 @@ $purple: var(--purple);
 $textcolor: var(--textcolor);
 
 $border-radius: 5px;
-$border-radius-lg: 15px;
 $tt: 0.3s;
 $transition-all: all $tt;
 
@@ -188,7 +188,7 @@ button {
   select,
   input,
   button {
-    border-radius: $border-radius-lg;
+    border-radius: $border-radius;
     font-size: 24px;
     padding: 10px 20px;
   }
@@ -196,7 +196,7 @@ button {
   .maintext {
     background: rgba(255, 255, 255, 0.8);
     border: 3px solid black;
-    border-radius: $border-radius-lg;
+    border-radius: $border-radius;
     font-size: 24px;
     margin: 40px auto;
     padding: 24px;
